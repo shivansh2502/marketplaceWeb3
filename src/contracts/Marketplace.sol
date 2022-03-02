@@ -41,11 +41,11 @@ contract Marketplace{
         require(_price>0);
 
         // Increment Product Count
-        productCount++;
+        productCount ++;
         // Create the product
         products[productCount] = Product(productCount, _name, _price, msg.sender, false);
         // Trigger an event
-        emit ProductCreated(productCount, _name, _price, msg.sender, false);
+        emit ProductCreated(products[productCount].id, products[productCount].name, _price, msg.sender, false);
     }
 
     function purchaseProduct(uint _id) public payable {
